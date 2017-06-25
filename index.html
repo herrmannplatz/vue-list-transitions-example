@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Vue.js - List transitions example</title>
+    <link rel="stylesheet" href="index.css">
+
+    <script src="https://unpkg.com/lodash"></script>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="list-transition-example" class="container">
+        <h1>Vue.js - List transition example</h1>
+        <transition-group name="flip-list" tag="ul" class="list">
+            <li class="list-item" 
+                v-bind:class="{ 'list-item-done': item.done }"
+                v-for="item in items" 
+                v-on:click="toggleDone(item)" 
+                v-bind:key="item">
+            <div class="list-item-title">{{ item.description }}</div>
+            <div class="list-item-created">{{ new Date(item.createdAt).toLocaleString() }}</div>
+            </li>
+        </transition-group>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
